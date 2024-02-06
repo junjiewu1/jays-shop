@@ -1,0 +1,85 @@
+package ${package.Controller};
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import org.springframework.web.bind.annotation.*;
+import jakarta.annotation.Resource;
+import java.util.List;
+
+import ${package.Service}.${table.serviceName};
+import ${package.Entity}.${entity};
+
+#if(${restControllerStyle})
+import org.springframework.web.bind.annotation.RestController;
+#else
+import org.springframework.stereotype.Controller;
+#end
+#if(${superControllerClassPackage})
+import ${superControllerClassPackage};
+#end
+
+/**
+ * <p>
+ * $!{table.comment} 前端控制器
+ * </p>
+ *
+ * @author ${author}
+ * @since ${date}
+ */
+#if(${restControllerStyle})
+@RestController
+#else
+@Controller
+#end
+@RequestMapping("#if(${package.ModuleName})/${package.ModuleName}#end/#if(${controllerMappingHyphenStyle})${controllerMappingHyphen}#else${table.entityPath}#end")
+#if(${kotlin})
+class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
+
+#else
+#if(${superControllerClass})
+public class ${table.controllerName} extends ${superControllerClass} {
+#else
+public class ${table.controllerName} {
+#end
+    @Resource
+    private ${table.serviceName} ${table.entityPath}Service;
+
+    //新增或者更新
+    @PostMapping
+    public ApiResult<?> save(@RequestBody ${entity} ${table.entityPath}) {
+        return success(${table.entityPath}Service.saveOrUpdate(${table.entityPath}));
+    }
+
+    //删除
+    @DeleteMapping("/{id}")
+    public ApiResult<?> delete(@PathVariable Integer id) {
+        return success(${table.entityPath}Service.removeById(id));
+    }
+
+    @PostMapping("/del/batch")
+    public ApiResult<?> deleteBatch(@RequestBody List<Integer> ids) {//批量删除
+        return success(${table.entityPath}Service.removeByIds(ids));
+    }
+
+    @GetMapping("/{id}")
+    public ApiResult<${entity}> findOne(@PathVariable Integer id) {
+        return success(${table.entityPath}Service.getById(id));
+    }
+
+    @GetMapping("/page")
+    public ApiResult<PageResult<${entity}>> findPage(${entity}Param param) {
+        PageParam<${entity}, ${entity}Param> page = new PageParam<>(param);
+        page.setDefaultOrder("sort_number");
+        return success(${table.entityPath}Service.page(page, page.getWrapper()));
+    }
+
+    //查询所有数据
+    @GetMapping
+    public ApiResult<List<${entity}>> findAll(${entity}Param param) {
+        PageParam<${entity}, ${entity}Param> page = new PageParam<>(param);
+        page.setDefaultOrder("sort_number");
+        return success(${table.entityPath}Service.list(page.getWrapper()));
+    }
+}
+
+#end

@@ -1,0 +1,24 @@
+# Tomcat
+server:
+  port: 8080
+
+# Spring
+spring:
+  application:
+    # ????
+    name: gulimall-gateway
+  profiles:
+    # ????
+    active: dev
+  cloud:
+    nacos:
+      username: nacos
+      password: wjj520138
+      discovery:
+        # ??????
+        server-addr: 127.0.0.1:8848
+      config:
+        # ??????
+        server-addr: 127.0.0.1:8848
+        # ??????
+        file-extension: yaml

@@ -1,0 +1,91 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        # 系统模块
+        - id: gulimall-admin
+          uri: lb://gulimall-admin
+          predicates:
+            - Path=/admin/**
+          filters:
+            - StripPrefix=1
+        # 优惠券模块
+        - id: gulimall-coupon
+          uri: lb://gulimall-coupon
+          predicates:
+            - Path=/coupon/**
+          filters:
+            - StripPrefix=1
+        # 客户模块
+        - id: gulimall-member
+          uri: lb://gulimall-member
+          predicates:
+            - Path=/member/**
+          filters:
+            - StripPrefix=1
+        # 订单模块
+        - id: gulimall-order
+          uri: lb://gulimall-order
+          predicates:
+            - Path=/order/**
+          filters:
+            - StripPrefix=1
+        # 订单模块
+        - id: gulimall-cart
+          uri: lb://gulimall-cart
+          predicates:
+            - Path=/cart/**
+          filters:
+            - StripPrefix=1
+        # 产品模块
+        - id: gulimall-product
+          uri: lb://gulimall-product
+          predicates:
+            - Path=/product/**
+          filters:
+            - StripPrefix=1
+        # 产品模块
+        - id: gulimall-ware
+          uri: lb://gulimall-ware
+          predicates:
+            - Path=/ware/**
+          filters:
+            - StripPrefix=1
+        # 文件模块
+        - id: gulimall-file
+          uri: lb://gulimall-file
+          predicates:
+            - Path=/file/**
+          filters:
+            - StripPrefix=1
+        # 产品模块
+        - id: gulimall-host_route
+          uri: lb://gulimall-product
+          predicates:
+            - Host=gulimall.com,item.gulimall.com
+        # 产品模块
+        - id: gulimall_search_route
+          uri: lb://gulimall-search
+          predicates:
+            - Host=search.gulimall.com
+        # 产品模块
+        - id: gulimall_auth_route
+          uri: lb://gulimall-auth-server
+          predicates:
+            - Host=auth.gulimall.com
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowed-origins: #允许跨域的请求
+              - http://localhost:8082
+            allowed-methods: "*" #运行跨域的请求方式
+            allowed-headers: "*" #允许请求中携带的头信息
+            allow-credentials: true #是否允许携带cookie
+            max-age: 36000 #跨域检测的有效期,单位s
+
+

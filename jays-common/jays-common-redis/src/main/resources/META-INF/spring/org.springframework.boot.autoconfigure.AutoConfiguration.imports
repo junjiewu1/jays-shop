@@ -1,0 +1,2 @@
+com.atguigu.gulimall.common.redis.service.RedisService
+com.atguigu.gulimall.common.redis.config.CacheConfig
