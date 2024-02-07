@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2024-02-06
  */
 @RestController
-@RequestMapping("/address")
+@RequestMapping("/api/address")
 public class AddressController extends BaseController {
     @Resource
     private AddressService addressService;
