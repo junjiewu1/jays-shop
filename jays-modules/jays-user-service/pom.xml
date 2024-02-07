@@ -13,6 +13,10 @@
 			<groupId>com.jays</groupId>
 			<artifactId>jays-common-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.jays</groupId>
+			<artifactId>jays-common-swagger</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>

@@ -5,6 +5,7 @@
     <parent>
         <groupId>com.jays</groupId>
         <artifactId>jays-common</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>jays-common-gen</artifactId>
     <description>jays-common-gen</description>

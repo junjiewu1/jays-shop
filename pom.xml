@@ -72,7 +72,6 @@
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
 				<version>${lombok.version}</version>
-				<scope>provided</scope>
 			</dependency>
 			<!-- tika, 用于FileServer获取content-type -->
 			<dependency>
@@ -90,12 +89,12 @@
 			<dependency>
 				<groupId>com.jays</groupId>
 				<artifactId>jays-common-swagger</artifactId>
-				<version>${guli.version}</version>
+				<version>${jays.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.jays</groupId>
 				<artifactId>jays-common-redis</artifactId>
-				<version>${guli.version}</version>
+				<version>${jays.version}</version>
 			</dependency>
 
 			<dependency>
