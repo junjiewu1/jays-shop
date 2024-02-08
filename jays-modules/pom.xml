@@ -10,6 +10,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modules>
+        <module>jays-admin</module>
         <module>jays-order-service</module>
         <module>jays-user-service</module>
         <module>jays-product-service</module>

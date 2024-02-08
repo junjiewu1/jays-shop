@@ -1,6 +1,6 @@
 package com.jays.user.service;
 
-import com.gulimall.common.swagger.annotation.EnableCustomSwagger;
+import com.jays.common.swagger.annotation.EnableCustomSwagger;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

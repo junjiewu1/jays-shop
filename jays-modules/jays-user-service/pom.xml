@@ -17,6 +17,20 @@
 			<groupId>com.jays</groupId>
 			<artifactId>jays-common-swagger</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.jays</groupId>
+			<artifactId>jays-common-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.ibeetl</groupId>
+			<artifactId>beetl</artifactId>
+			<version>3.6.1.RELEASE</version>
+		</dependency>
+
 	</dependencies>
 
 </project>

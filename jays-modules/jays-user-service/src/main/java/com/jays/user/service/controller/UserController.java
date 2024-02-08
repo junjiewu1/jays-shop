@@ -1,6 +1,9 @@
 package com.jays.user.service.controller;
 
-import com.gulimall.common.core.web.*;
+import com.jays.common.core.web.ApiResult;
+import com.jays.common.core.web.BaseController;
+import com.jays.common.core.web.PageParam;
+import com.jays.common.core.web.PageResult;
 import com.jays.user.service.entity.vo.UserParam;
 import org.springframework.web.bind.annotation.*;
 import jakarta.annotation.Resource;
